@@ -75,7 +75,7 @@ const ChatList = ({ chats, activeChat, setActiveChat, user, darkMode, toggleThem
       initial={{ x: -300, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 100 }}
-      className="w-full border-r border-border/40 bg-card shadow-md h-full flex flex-col"
+      className="w-full relative border-r border-border/40 bg-card shadow-md h-full flex flex-col"
     >
       {/* User Profile */}
       <div className="p-4 border-b border-border/40 backdrop-blur-sm bg-card/90 sticky top-0 z-10"> 
@@ -95,11 +95,11 @@ const ChatList = ({ chats, activeChat, setActiveChat, user, darkMode, toggleThem
               <span className="text-lg font-semibold text-primary-foreground">{user?.name?.[0] || '?'}</span>
               
               {/* Status indicator */}
-              <motion.div 
+              {/* <motion.div 
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-green-500 border-2 border-card z-10"
-              ></motion.div>
+              ></motion.div> */}
             </motion.div>
             
             <div>
@@ -191,7 +191,7 @@ const ChatList = ({ chats, activeChat, setActiveChat, user, darkMode, toggleThem
           </div>
           
           <div className="flex items-center space-x-1">
-            <motion.button
+            {/* <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={(e) => {
@@ -203,7 +203,7 @@ const ChatList = ({ chats, activeChat, setActiveChat, user, darkMode, toggleThem
             >
               <Settings className="h-5 w-5" />
             </motion.button>
-            
+             */}
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -253,7 +253,7 @@ const ChatList = ({ chats, activeChat, setActiveChat, user, darkMode, toggleThem
         </div>
         
         {/* Filter buttons */}
-        <div className="flex items-center mt-3 space-x-2 overflow-x-auto custom-scrollbar pb-1">
+        <div className="flex items-center mt-3 space-x-2 overflow-x-auto scrollbar-hidden pb-1">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -287,7 +287,7 @@ const ChatList = ({ chats, activeChat, setActiveChat, user, darkMode, toggleThem
             Groups
           </motion.button>
           
-          <div className="relative">
+          {/* <div className="relative"> */}
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -308,7 +308,7 @@ const ChatList = ({ chats, activeChat, setActiveChat, user, darkMode, toggleThem
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.9 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute top-full left-0 mt-2 w-48 bg-card shadow-lg rounded-lg overflow-hidden z-20 border border-border/40"
+                  className="absolute top-[27%] right-5 mt-2 w-48 bg-card shadow-lg rounded-lg overflow-hidden z-[5000] border border-border/40"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <div className="p-2">
@@ -347,13 +347,13 @@ const ChatList = ({ chats, activeChat, setActiveChat, user, darkMode, toggleThem
                 </motion.div>
               )}
             </AnimatePresence>
-          </div>
+          {/* </div> */}
         </div>
       </div>
 
       {/* Navigation */}
-      <nav className="px-4 pb-2">
-        <ul className="flex space-x-1 border-b border-border/30 pb-2">
+      <nav className="px-4 pb-2 w-[95%] overflow-x-auto scrollbar-hidden flex">
+        <ul className="flex space-x-2 border-b border-border/30 pb-2">
           {navItems.map((item) => (
             <li key={item.value} className="flex-1">
               <motion.button
@@ -367,7 +367,7 @@ const ChatList = ({ chats, activeChat, setActiveChat, user, darkMode, toggleThem
                 onClick={() => setActiveNav(item.value)}
               >
                 {item.icon}
-                <span>{item.label}</span>
+                <span className='text-xs'>{item.label}</span>
               </motion.button>
             </li>
           ))}
@@ -600,7 +600,7 @@ const ChatList = ({ chats, activeChat, setActiveChat, user, darkMode, toggleThem
       </div>
 
       {/* Sign Out Button */}
-      <div className="p-4 border-t border-border/40 mt-auto">
+      {/* <div className="p-4 border-t border-border/40 mt-auto">
         <motion.button
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
@@ -616,7 +616,7 @@ const ChatList = ({ chats, activeChat, setActiveChat, user, darkMode, toggleThem
           <LogOut className="h-4 w-4" />
           <span>Sign Out</span>
         </motion.button>
-      </div>
+      </div> */}
     </motion.div>
   );
 };

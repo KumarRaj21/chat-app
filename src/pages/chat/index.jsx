@@ -132,8 +132,6 @@ const Chat = () => {
             transition={{ duration: 0.3 }}
             className="w-1/4 flex-shrink-0 border-r border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 flex flex-col h-full z-20 md:relative absolute"
           >
-            {/* Sidebar Header */}
-            
             {/* Chat List */}
             <div className="overflow-y-auto flex-grow scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-700">
               {filteredChats.length > 0 ? (
@@ -151,17 +149,12 @@ const Chat = () => {
                 </div>
               )}
             </div>
-            
-            {/* Sidebar Footer */}
-            
           </motion.div>
         )}
       </AnimatePresence>
       
       {/* Main Content */}
       <div className="flex-1 flex flex-col h-full bg-gray-50 dark:bg-gray-950 w-2/3">
-        {/* Chat Header */}
-        
         {/* Chat Window */}
         <div className="flex-1 overflow-hidden flex flex-col">
           {selectedChat ? (
@@ -173,48 +166,6 @@ const Chat = () => {
           ) : (
             <EmptyState onCreateChat={createNewChat} />
           )}
-          
-          {/* Message Input */}
-          {/* {selectedChat && (
-            <div className="p-4 border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
-              <form onSubmit={handleSendMessage} className="flex items-end space-x-2">
-                <div className="flex-1 bg-gray-100 dark:bg-gray-800 rounded-lg p-2 focus-within:ring-2 focus-within:ring-indigo-500 dark:focus-within:ring-indigo-600">
-                  <div className="flex items-center space-x-2 mb-2">
-                    <button type="button" className="p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-                      <Paperclip size={18} className="text-gray-500 dark:text-gray-400" />
-                    </button>
-                    <button type="button" className="p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-                      <Smile size={18} className="text-gray-500 dark:text-gray-400" />
-                    </button>
-                  </div>
-                  <textarea
-                    ref={messageInputRef}
-                    className="w-full bg-transparent resize-none focus:outline-none max-h-32 text-gray-900 dark:text-white placeholder-gray-400"
-                    rows={1}
-                    placeholder="Type your message..."
-                    value={newMessage}
-                    onChange={(e) => setNewMessage(e.target.value)}
-                    onKeyDown={handleKeyPress}
-                    style={{ minHeight: '24px' }}
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className={`flex-shrink-0 p-3 rounded-full ${
-                    newMessage.trim() 
-                      ? 'bg-indigo-600 hover:bg-indigo-700 text-white' 
-                      : 'bg-gray-200 dark:bg-gray-800 text-gray-400 cursor-not-allowed'
-                  } transition-colors`}
-                  disabled={!newMessage.trim()}
-                >
-                  <Send size={18} />
-                </button>
-              </form>
-              <div className="mt-2 text-xs text-center text-gray-400 dark:text-gray-600">
-                Press Enter to send, Shift+Enter for new line
-              </div>
-            </div>
-          )} */}
         </div>
       </div>
     </div>
